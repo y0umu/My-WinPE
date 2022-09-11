@@ -28,6 +28,34 @@ or
 manage-bde -unlock D: -rp YOUR-BITLOCKER-PASSWORD
 ```
 
+### Using the doublecmd to open directory by default
+Assume you have installed doublecmd into `X:\apps\doublecmd\doublecmd.exe` in the PE.
+
+1. Mount the PE image with `Dism /Mount-Image /ImageFile:%IMGSRC% /index:1 /MountDir:_mount`, replace `%IMGSRC%` with the path to the wim image.
+2. Run `regedit` and load this hive: `_mount\windows\system32\config\SOFTWARE` into HKLM. Name it something that makes sense (i.e winpe_software).
+3. Write the following into the PE registry (`tools/install_double_cmd_as_default.reg`):
+```
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\winpe_software\Classes\Drive\shell]
+@="open"
+
+[HKEY_LOCAL_MACHINE\winpe_software\Classes\Drive\shell\open]
+
+[HKEY_LOCAL_MACHINE\winpe_software\Classes\Drive\shell\open\command]
+@="X:\\apps\\doublecmd\\doublecmd.exe -C -T --no-splash -R \"%1\""
+
+[HKEY_LOCAL_MACHINE\winpe_software\Classes\Directory\shell]
+@="open"
+
+[HKEY_LOCAL_MACHINE\winpe_software\Classes\Directory\shell\open]
+
+[HKEY_LOCAL_MACHINE\winpe_software\Classes\Directory\shell\open\command]
+@="X:\\apps\\doublecmd\\doublecmd.exe -C -T --no-splash -R \"%1\""
+```
+4. Unload this registry hive.
+5. Commit changes with `Dism /Unmount-Image /MountDir:_mount /commit`.
+
 ## How to build the WinPE image
 You probably need a legal copy of Windows to proceed. Generally, you should follow these steps:
 1. Install ADK **and** ADK Windows PE Addon. Follow this documention on [ADK](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-create-usb-bootable-drive) and this on [creating bootable media](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-create-usb-bootable-drive).
@@ -35,7 +63,7 @@ You probably need a legal copy of Windows to proceed. Generally, you should foll
 3. Run `copype amd64 WinPE_amd64`.
 4. Check and modify `my-winpe.cmd`. Obtain the utilities you need. Then run `my-winpe.cmd`.
 5. Optionally test your image in a virtual machine.
-6. Write it to a flash disk with `MakeWinPEMedia /ufd J:` (assuming your flash disk has drive letter J).
+6. Write it to a flash disk with `MakeWinPEMedia /ufd WinPE_amd64 J:` (assuming your flash disk has drive letter J).
 
 **Notice** The partition table of your flash disk has to be MBR, otherwise `MakeWinPEMedia /ufd` [would fail](https://docs.microsoft.com/en-us/answers/questions/249767/makewinpemedia-fails-for-me.html).
 
