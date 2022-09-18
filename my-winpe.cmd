@@ -46,7 +46,7 @@ mkdir _mount\apps
 REM busybox (https://frippery.org/busybox/) and so on
 mkdir "_mount\apps\my-cli-collection"
 copy "D:\Applications\my-cli-collection\busybox.exe" "_mount\apps\my-cli-collection\"
-copy "D:\Applications\my-cli-collection\WolCmd.exe" "_mount\apps\my-cli-collection\"
+@REM copy "D:\Applications\my-cli-collection\WolCmd.exe" "_mount\apps\my-cli-collection\"
 
 REM Process Explorer (https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer)
 mkdir "_mount\apps\procexp"
