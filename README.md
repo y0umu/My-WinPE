@@ -6,10 +6,11 @@ This my personal [Windows PE (WinPE)](https://docs.microsoft.com/en-us/windows-h
 Utilities include:
 * [bbLean](http://bb4win.sourceforge.net/bblean/) that establishs an old-school user interface
 * [busybox](https://frippery.org/busybox/) that yields some unix feel
-* [Double Commander](https://doublecmd.sourceforge.io/) that replaces explorer.exe. I am including it because you can edit text files, read binary file in hex format, view images with this awsome utility.
+* [Double Commander](https://doublecmd.sourceforge.io/) that replaces explorer.exe. I am including it because you can edit text files, read binary file in hex format, view images with this awesome utility.
 * [FastCopy](https://fastcopy.jp/)
 * [DiskGenius](https://www.diskgenius.cn/)
 * [WinFR (Windows File Recovery)](https://aka.ms/winfrhelp) that recovers deleted files
+* [TestDisk and PhotoRec 7.1](https://www.cgsecurity.org/) that also covers disk and file recovery
 
 **Notice** Due to the mechanism of `winpeshl.exe`, you need to terminate the last running process listed in `%SYSTEMROOT%\System32\winpeshl.ini` to reboot. For my build, that is bbLean/Blackbox. To do so, right click the desktop and locate Blackbox > Quit.
 
@@ -67,3 +68,7 @@ You probably need a legal copy of Windows to proceed. Generally, you should foll
 
 **Notice** The partition table of your flash disk has to be MBR, otherwise `MakeWinPEMedia /ufd` [would fail](https://docs.microsoft.com/en-us/answers/questions/249767/makewinpemedia-fails-for-me.html).
 
+## Looks cool, do you have a pre-built thing for me to try instantly?
+Unfortunately, the answer is no for the time being. Largely due to the legal things I can't understand. To name a few:
+* Current build requires you to copy your `C:\Windows\System32\oledlg.dll` to the PE image. Probably not proper to redistribute.
+* It is not clear whether it is legal to redistribute Windows PE images, the 3rd-parth utilites (especailly the proprietary ones) and the Shizuku wallpaper.
