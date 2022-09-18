@@ -72,4 +72,4 @@ You probably need a legal copy of Windows to proceed. Generally, you should foll
 ## Looks cool, do you have a pre-built thing for me to try instantly?
 Unfortunately, the answer is no for the time being. Largely due to the legal things I can't understand. To name a few:
 * Current build requires you to copy your `C:\Windows\System32\oledlg.dll` to the PE image. Probably not proper to redistribute.
-* It is not clear whether it is legal to redistribute Windows PE images, the 3rd-parth utilites (especailly the proprietary ones) and the Shizuku wallpaper.
+* It is not clear whether it is legal to redistribute Windows PE images, the 3rd-parth utilites (especially the proprietary ones) and the Shizuku wallpaper.
