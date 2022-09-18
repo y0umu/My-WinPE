@@ -62,6 +62,7 @@ xcopy /E "D:\Applications\doublecmd" "_mount\apps\doublecmd\"
 
 REM bbLean (a shell) http://bb4win.sourceforge.net/bblean/
 xcopy /E "D:\Applications\bbLean" "_mount\apps\bbLean\"
+xcopy /E "bbLean_modified_config\*" "_mount\apps\bbLean\"
 
 REM fastcopy https://fastcopy.jp/
 xcopy /E "D:\Applications\FastCopy392_x64" "_mount\apps\FastCopy\"
