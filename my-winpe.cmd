@@ -76,6 +76,10 @@ REM TestDisk & PhotoRec for disk and file recovery
 REM https://www.cgsecurity.org/
 xcopy /E "D:\Applications\testdisk-7.1\" "_mount\apps\testdisk-7.1\"
 
+REM chntpw (compiled from source with mingw64 myself)
+REM https://pogostick.net/~pnh/ntpasswd/
+xcopy /E "D:\xzc\lab\chntpw_mingw64\" "_mount\apps\chntpw_mingw64\"
+
 REM ---------------------------
 echo Adding custom Winpeshl.ini...
 REM https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpeshlini-reference-launching-an-app-when-winpe-starts?view=windows-11

@@ -20,6 +20,7 @@
         [exec] (Process Explorer) {X:\apps\procexp\procexp64.exe}
         [exec] (DiskGenius) {X:\apps\DiskGenius\DiskGenius.exe}
         [exec] (TestDisk and PhotoRec) {cmd /k "cd /d X:\apps\testdisk-7.1"}
+        [exec] (Offline NT Password and Registry Editor) {cmd /k "cd /d X:\apps\chntpw_mingw64"}
         [exec] (my-cli-collections) {cmd /k "cd /d X:\apps\my-cli-collection"}
         [end]
     # Paths with spaces should have quotes:
