@@ -11,6 +11,7 @@ Utilities include:
 * [DiskGenius](https://www.diskgenius.cn/)
 * [WinFR (Windows File Recovery)](https://aka.ms/winfrhelp) that recovers deleted files
 * [TestDisk and PhotoRec 7.1](https://www.cgsecurity.org/) that also covers disk and file recovery
+* [Offline NT Password & Registry Editor](https://pogostick.net/~pnh/ntpasswd/) that comes to rescure if you have to unlock your accidentally locked local Windows account or even blank its password. You will need a [Windows version](https://github.com/y0umu/chntpw_mingw64).
 
 **Notice** Due to the mechanism of `winpeshl.exe`, you need to terminate the last running process listed in `%SYSTEMROOT%\System32\winpeshl.ini` to reboot. For my build, that is bbLean/Blackbox. To do so, right click the desktop and locate Blackbox > Quit.
 
