@@ -19,6 +19,7 @@
         [exec] (FastCopy) {X:\apps\FastCopy\FastCopy.exe}
         [exec] (Process Explorer) {X:\apps\procexp\procexp64.exe}
         [exec] (DiskGenius) {X:\apps\DiskGenius\DiskGenius.exe}
+        [exec] (my-cli-collections) {cmd /k "X:\apps\my-cli-collections"}
         [end]
     # Paths with spaces should have quotes:
     # [exec] (Firefox) {"PROGRAM_FILES\Mozilla Firefox\firefox.exe"}
