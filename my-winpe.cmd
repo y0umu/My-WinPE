@@ -71,6 +71,10 @@ REM you need a legal copy of "C:\Windows\System32\oledlg.dll" to make it work in
 xcopy /E "D:\Applications\DiskGenius" "_mount\apps\DiskGenius\"
 copy "C:\Windows\System32\oledlg.dll" "_mount\apps\DiskGenius\"
 
+REM TestDisk & PhotoRec for disk and file recovery
+REM https://www.cgsecurity.org/
+xcopy /E "D:\Applications\testdisk-7.1\" "_mount\apps\testdisk-7.1\"
+
 REM ---------------------------
 echo Adding custom Winpeshl.ini...
 REM https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpeshlini-reference-launching-an-app-when-winpe-starts?view=windows-11
