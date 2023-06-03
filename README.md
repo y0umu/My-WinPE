@@ -7,7 +7,6 @@ Utilities include:
 * [bbLean](http://bb4win.sourceforge.net/bblean/) that establishs an old-school user interface
 * [busybox](https://frippery.org/busybox/) that yields some unix feel
 * [Double Commander](https://doublecmd.sourceforge.io/) that replaces explorer.exe. I am including it because you can edit text files, read binary file in hex format, view images with this awesome utility.
-* [FastCopy](https://fastcopy.jp/)
 * [DiskGenius](https://www.diskgenius.cn/)
 * [WinFR (Windows File Recovery)](https://aka.ms/winfrhelp) that recovers deleted files
 * [TestDisk and PhotoRec 7.1](https://www.cgsecurity.org/) that also covers disk and file recovery

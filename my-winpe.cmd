@@ -48,10 +48,9 @@ mkdir "_mount\apps\my-cli-collection"
 copy "D:\Applications\my-cli-collection\busybox.exe" "_mount\apps\my-cli-collection\"
 @REM copy "D:\Applications\my-cli-collection\WolCmd.exe" "_mount\apps\my-cli-collection\"
 
-REM Process Explorer (https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer)
-mkdir "_mount\apps\procexp"
-copy "D:\Applications\SysinternalsSuite\procexp64.exe" "_mount\apps\procexp"
-copy "D:\Applications\SysinternalsSuite\procexp.chm" "_mount\apps\procexp"
+REM Systeminternalsuite (https://docs.microsoft.com/en-us/sysinternals)
+mkdir "_mount\apps\SysinternalsSuite"
+xcopy /E "D:\Applications\SysinternalsSuite" "_mount\apps\SysinternalsSuite\"
 
 REM WinFR (Windows File Recovery) (https://aka.ms/winfrhelp)
 REM You have to obtain it from Microsoft Store first
@@ -65,7 +64,7 @@ xcopy /E "D:\Applications\bbLean" "_mount\apps\bbLean\"
 xcopy /E "bbLean_modified_config\*" "_mount\apps\bbLean\"
 
 REM fastcopy https://fastcopy.jp/
-xcopy /E "D:\Applications\FastCopy392_x64" "_mount\apps\FastCopy\"
+REM xcopy /E "D:\Applications\FastCopy392_x64" "_mount\apps\FastCopy\"
 
 REM Disk partiton and others https://www.diskgenius.cn/
 REM you need a legal copy of "C:\Windows\System32\oledlg.dll" to make it work in PE
@@ -84,6 +83,11 @@ REM ---------------------------
 echo Adding custom Winpeshl.ini...
 REM https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpeshlini-reference-launching-an-app-when-winpe-starts?view=windows-11
 copy "winpeshl.ini" "_mount\Windows\System32"
+
+REM ---------------------------
+echo Adding a script
+mkdir _mount\Scripts
+copy tools\install_double_cmd_as_default.reg _mount\Scripts
 
 REM ---------------------------
 echo Adding README...

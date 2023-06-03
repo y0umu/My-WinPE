@@ -15,13 +15,18 @@
     [exec] (Startnet.cmd) {X:\Windows\System32\cmd /k X:\Windows\System32\startnet.cmd}
     [nop]
     [submenu] (Utilities)
-        [exec] (Double Commander) {X:\apps\doublecmd\doublecmd.exe}
-        [exec] (FastCopy) {X:\apps\FastCopy\FastCopy.exe}
-        [exec] (Process Explorer) {X:\apps\procexp\procexp64.exe}
-        [exec] (DiskGenius) {X:\apps\DiskGenius\DiskGenius.exe}
-        [exec] (TestDisk and PhotoRec) {cmd /k "cd /d X:\apps\testdisk-7.1"}
+        [submenu] (Files and Disks)
+            [exec] (Double Commander) {X:\apps\doublecmd\doublecmd.exe}
+            [exec] (Speccy) {X:\apps\Speccy\Speccy64.exe}
+            [exec] (Recuva) {X:\apps\Recuva\recuva64.exe}
+            [exec] (DiskGenius) {X:\apps\DiskGenius\DiskGenius.exe}
+            [exec] (TestDisk and PhotoRec) {cmd /k "cd /d X:\apps\testdisk-7.1"}
+            [exec] (Process Explorer) {X:\apps\SysinternalsSuite\procexp.exe}
+            [end]
+        [exec] (SumatraPDF) {X:\apps\SumatraPDF\SumatraPDF-3.4.6-64.exe}
+        [exec] (Lightweight IDE (Geany)) {X:\apps\geany\bin\geany.exe}
         [exec] (Offline NT Password and Registry Editor) {cmd /k "cd /d X:\apps\chntpw_mingw64"}
-        [exec] (my-cli-collections) {cmd /k "cd /d X:\apps\my-cli-collection"}
+        [path] (Apps) {X:\apps}
         [end]
     # Paths with spaces should have quotes:
     # [exec] (Firefox) {"PROGRAM_FILES\Mozilla Firefox\firefox.exe"}
