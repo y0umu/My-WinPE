@@ -13,18 +13,21 @@
     [nop]
     [exec] (README) {notepad X:\README.md}
     [exec] (Startnet.cmd) {X:\Windows\System32\cmd /k X:\Windows\System32\startnet.cmd}
+    [exec] (File manager (Double Commander)) {X:\apps\doublecmd\doublecmd.exe}
+    [exec] (Process Explorer) {X:\apps\SysinternalsSuite\procexp.exe}
+    [exec] (PENetwork) {X:\apps\PENetwork\PENetwork.exe} 
     [nop]
     [submenu] (Utilities)
-        [submenu] (Files and Disks)
-            [exec] (Double Commander) {X:\apps\doublecmd\doublecmd.exe}
-            [exec] (Speccy) {X:\apps\Speccy\Speccy64.exe}
+        [submenu] (File recovery)
+            [exec] (TestDisk and PhotoRec) {cmd /k "cd /d X:\apps\testdisk-7.1"}
             [exec] (Recuva) {X:\apps\Recuva\recuva64.exe}
             [exec] (DiskGenius) {X:\apps\DiskGenius\DiskGenius.exe}
-            [exec] (TestDisk and PhotoRec) {cmd /k "cd /d X:\apps\testdisk-7.1"}
-            [exec] (Process Explorer) {X:\apps\SysinternalsSuite\procexp.exe}
             [end]
+        [exec] (Speccy) {X:\apps\Speccy\Speccy64.exe}
         [exec] (SumatraPDF) {X:\apps\SumatraPDF\SumatraPDF-3.4.6-64.exe}
         [exec] (Lightweight IDE (Geany)) {X:\apps\geany\bin\geany.exe}
+        [exec] (Detect-It-Easy) {cmd /k "cd /d X:\apps\Detect-It-Easy"}
+        [exec] (SysinternalsSuite) {cmd /k "cd /d X:\apps\SysinternalsSuite"}
         [exec] (Offline NT Password and Registry Editor) {cmd /k "cd /d X:\apps\chntpw_mingw64"}
         [path] (Apps) {X:\apps}
         [end]
