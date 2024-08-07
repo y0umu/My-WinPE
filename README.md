@@ -41,9 +41,6 @@ There are also legal concerns. If it bothers you, please open an issue.
 <!-- * Current build requires you to copy your `C:\Windows\System32\oledlg.dll` to the PE image. Probably not proper to redistribute. -->
 * ~~It is not clear whether it is legal to redistribute Windows PE images, the 3rd-parth utilites (especially the proprietary ones) and the Shizuku wallpaper.~~ Including shizuku images violates rules in [壁紙について](https://suishoshizuku.com/wallpaper/). Distributed iso images will not include them.
 
-### Other useful links
-The Arch Wiki page on Windows PE: https://wiki.archlinux.org/title/Windows_PE
-
 ## How to build the WinPE image
 You probably need a legal copy of Windows to proceed. Generally, you should follow these steps:
 1. Install ADK **and** ADK Windows PE Addon. Follow this documention on [ADK](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-create-usb-bootable-drive) and this on [creating bootable media](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-create-usb-bootable-drive).
@@ -55,3 +52,7 @@ You probably need a legal copy of Windows to proceed. Generally, you should foll
 
 **Notice** The partition table of your flash disk has to be MBR, otherwise `MakeWinPEMedia /ufd` [would fail](https://docs.microsoft.com/en-us/answers/questions/249767/makewinpemedia-fails-for-me.html).
 
+> Instead of running `MakeWinPEMedia /ufd WinPE_amd64 J:`, you can try the [ventoy](https://www.ventoy.net) method as well.
+
+### Other useful links
+The Arch Wiki page on Windows PE: https://wiki.archlinux.org/title/Windows_PE
