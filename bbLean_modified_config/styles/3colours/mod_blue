@@ -9,10 +9,9 @@ style.credits: modified by grischka - nov 2003
 style.comments: changed fonts and made it a bit lighter
 
 !-- background --
-#rootCommand: bsetroot -gradient interlacedverticalgradient -from rgb:ad/d8/e6 -to rgb:00/00/ff backgrounds/3colours/blue.jpg -hue 120
-# This wallpaper is from https://suishoshizuku.com/images/ShizukuWP23_1280x720.png
-rootCommand: bsetroot -solid rgb:ff/ff/ff -center backgrounds/ShizukuWP11_1280x720.jpg
-
+# rootCommand: bsetroot -gradient interlacedverticalgradient -from rgb:ad/d8/e6 -to rgb:00/00/ff backgrounds/3colours/blue.jpg -hue 120
+# rootCommand: bsetroot -solid rgb:ff/ff/ff -center backgrounds/ShizukuWP11_1920x1080.jpg
+rootCommand: bsetroot -gradient interlacedverticalgradient -from rgb:ad/d8/e6 -to rgb:00/00/ff -center backgrounds/ShizukuWP11_1920x1080.jpg
 
 !-- toolbar --
 toolbar.appearance: sunken interlaced solid border

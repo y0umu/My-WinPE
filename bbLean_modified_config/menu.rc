@@ -13,18 +13,19 @@
     [nop]
     [exec] (README) {notepad X:\README.md}
     [exec] (Startnet.cmd) {X:\Windows\System32\cmd /k X:\Windows\System32\startnet.cmd}
+    [exec] (busybox shell) {X:\apps\my-cli-collection\busybox.exe sh -i}
     [exec] (File manager (Double Commander)) {X:\apps\doublecmd\doublecmd.exe}
-    [exec] (Process Explorer) {X:\apps\SysinternalsSuite\procexp.exe}
-    [exec] (PENetwork) {X:\apps\PENetwork\PENetwork.exe} 
+    [exec] (Process Explorer) {X:\apps\SysinternalsSuite\procexp64.exe /accepteula}
+    #[exec] (PENetwork) {X:\apps\PENetwork\PENetwork.exe} 
     [nop]
     [submenu] (Utilities)
         [submenu] (File recovery)
-            [exec] (TestDisk and PhotoRec) {cmd /k "cd /d X:\apps\testdisk-7.1"}
-            [exec] (Recuva) {X:\apps\Recuva\recuva64.exe}
-            [exec] (DiskGenius) {X:\apps\DiskGenius\DiskGenius.exe}
+            [exec] (TestDisk and PhotoRec) {cmd /k "cd /d X:\apps\testdisk-7.2"}
+            #[exec] (Recuva) {X:\apps\Recuva\recuva64.exe}
+            #[exec] (DiskGenius) {X:\apps\DiskGenius\DiskGenius.exe}
             [end]
-        [exec] (Speccy) {X:\apps\Speccy\Speccy64.exe}
-        [exec] (SumatraPDF) {X:\apps\SumatraPDF\SumatraPDF-3.4.6-64.exe}
+        #[exec] (Speccy) {X:\apps\Speccy\Speccy64.exe}
+        [exec] (SumatraPDF) {X:\apps\SumatraPDF\SumatraPDF-3.5.2-64.exe}
         [exec] (Lightweight IDE (Geany)) {X:\apps\geany\bin\geany.exe}
         [exec] (Detect-It-Easy) {cmd /k "cd /d X:\apps\Detect-It-Easy"}
         [exec] (SysinternalsSuite) {cmd /k "cd /d X:\apps\SysinternalsSuite"}
@@ -71,11 +72,14 @@
         [exit]  (Quit)
         [end]
     # Currently these commands won't work in WinPE
-    # [submenu] (Goodbye)
+    # workaround with psshutdown
+    [submenu] (Goodbye)
     #     [lockworkstation] (Lock)
     #     [logoff] (Logoff)
     #     [suspend] (Standby)
     #     [reboot] (Reboot)
+        [exec] (Reboot) {X:\apps\SysinternalsSuite\psshutdown64.exe /accepteula -t 1 -f -r}
     #     [shutdown] (Shutdown)
-    #     [end]
+        [exec] (Shutdown) {X:\apps\SysinternalsSuite\psshutdown64.exe /accepteula -t 1 -f -k}
+        [end]
 [end]

@@ -42,6 +42,7 @@ Dism /Image:_mount /Add-Package /PackagePath:%PE_WMI_EN% /PackagePath:%PE_ENHANC
 @REM ---------------------------
 echo Adding custom apps...
 mkdir _mount\apps
+set "HOME=D:\%USERNAME%"
 
 @REM busybox (https://frippery.org/busybox/) and so on
 mkdir "_mount\apps\my-cli-collection"
@@ -54,58 +55,63 @@ xcopy /E "D:\Applications\SysinternalsSuite" "_mount\apps\SysinternalsSuite\"
 
 @REM WinFR (Windows File Recovery) (https://aka.ms/winfrhelp)
 @REM You have to obtain it from Microsoft Store first
-copy "C:\Program Files\WindowsApps\Microsoft.WindowsFileRecovery_0.1.20151.0_x64__8wekyb3d8bbwe\ntfssalv_cli_exe\WinFR.exe" "_mount\Windows"
+@REM copy "C:\Program Files\WindowsApps\Microsoft.WindowsFileRecovery_0.1.20151.0_x64__8wekyb3d8bbwe\ntfssalv_cli_exe\WinFR.exe" "_mount\Windows"
 
 @REM Double commander (explorer.exe alternative and much more) https://doublecmd.sourceforge.io/
 @REM xcopy /E "D:\Applications\doublecmd" "_mount\apps\doublecmd\"
-7z x d:\xzc\Downloads\app\doublecmd-1.0.11.x86_64-win64.zip -o"_mount\apps\"
+7z x "%HOME%\Downloads\app\doublecmd-1.1.16.x86_64-win64.zip" -o"_mount\apps\"
 
 @REM bbLean (a shell) http://bb4win.sourceforge.net/bblean/
 xcopy /E "D:\Applications\bbLean" "_mount\apps\bbLean\"
-xcopy /E "bbLean_modified_config\*" "_mount\apps\bbLean\"
+copy "bbLean_modified_config\menu.rc" "_mount\apps\bbLean\"
+copy "bbLean_modified_config\blackbox.rc" "_mount\apps\bbLean\"
+copy "bbLean_modified_config\styles\3colours\mod_blue" "_mount\apps\bbLean\styles\3colours\"
+@REN Optionally add shizuku wallpaper. Should not be included in distributed image.
+@REM copy "%HOME%\Pictures\Shizuku\ShizukuWP11_1920x1080.jpg" "_mount\apps\bbLean\backgrounds\"
 
 @REM fastcopy https://fastcopy.jp/
 @REM xcopy /E "D:\Applications\FastCopy392_x64" "_mount\apps\FastCopy\"
 
 @REM Disk partiton and others https://www.diskgenius.cn/
 @REM you need a legal copy of "C:\Windows\System32\oledlg.dll" to make it work in PE
-xcopy /E "D:\Applications\DiskGenius" "_mount\apps\DiskGenius\"
-copy "C:\Windows\System32\oledlg.dll" "_mount\apps\DiskGenius\"
+@REM xcopy /E "D:\Applications\DiskGenius" "_mount\apps\DiskGenius\"
+@REM copy "C:\Windows\System32\oledlg.dll" "_mount\apps\DiskGenius\"
 
 @REM TestDisk & PhotoRec for disk and file recovery
 @REM https://www.cgsecurity.org/
-xcopy /E "D:\Applications\testdisk-7.1\" "_mount\apps\testdisk-7.1\"
+@REM xcopy /E "D:\Applications\testdisk-7.1\" "_mount\apps\testdisk-7.1\"
+7z x "%HOME%\Downloads\app\testdisk-7.2.win64.zip" -o"_mount\apps\"
 
 @REM chntpw (compiled from source with mingw64 myself)
 @REM https://pogostick.net/~pnh/ntpasswd/
-xcopy /E "D:\xzc\lab\chntpw_mingw64\" "_mount\apps\chntpw_mingw64\"
+xcopy /E "%HOME%\lab\chntpw_mingw64\" "_mount\apps\chntpw_mingw64\"
 
 @REM Recuva & Speccy (https://www.piriform.com)
-mkdir "_mount\apps\Recuva"
-7z x d:\xzc\Downloads\app\rcsetup153.exe -x!$* -o"_mount\apps\Recuva"
-echo 1 > "_mount\apps\Recuva\portable.dat"
-mkdir "_mount\apps\Speccy"
-7z x d:\xzc\Downloads\app\spsetup132.exe -x!$* -o"_mount\apps\Speccy"
-echo 1 > "_mount\apps\Speccy\portable.dat"
+@REM mkdir "_mount\apps\Recuva"
+@REM 7z x %HOME%\Downloads\app\rcsetup153.exe -x!$* -o"_mount\apps\Recuva"
+@REM echo 1 > "_mount\apps\Recuva\portable.dat"
+@REM mkdir "_mount\apps\Speccy"
+@REM 7z x %HOME%\Downloads\app\spsetup132.exe -x!$* -o"_mount\apps\Speccy"
+@REM echo 1 > "_mount\apps\Speccy\portable.dat"
 
 @REM Geany (https://www.geany.org)
 mkdir "_mount\apps\geany"
-7z x d:\xzc\Downloads\app\geany-1.38_setup.exe -x!$* -o"_mount\apps\geany"
+7z x %HOME%\Downloads\app\geany-2.0_setup.exe -x!$* -o"_mount\apps\geany"
 
 @REM Detect-It-Easy (https://github.com/horsicq/Detect-It-Easy)
 mkdir "_mount\apps\Detect-It-Easy"
-7z x d:\xzc\Downloads\app\die_win64_portable_3.07.zip -o"_mount\apps\Detect-It-Easy"
+7z x %HOME%\Downloads\app\die_win64_portable_3.09_x64.zip -o"_mount\apps\Detect-It-Easy"
 
-@REM PDFreader
+@REM PDFreader (https://www.sumatrapdfreader.org/)
 mkdir "_mount\apps\SumatraPDF"
-7z x d:\xzc\Downloads\app\SumatraPDF-3.4.6-64.zip -o"_mount\apps\SumatraPDF"
+7z x %HOME%\Downloads\app\SumatraPDF-3.5.2-64.zip -o"_mount\apps\SumatraPDF"
 
 @REM some drivers
 @REM Dism /Add-Driver /Image:_mount /Driver:d:\Drivers\WLAN_Realtek_8852AE\netrtwlane6.inf
 
 @REM PENetwork (https://www.penetworkmanager.de/)
-mkdir _mount\apps\PENetwork
-7z x d:\xzc\Downloads\app\PENetwork_x64.7z -o"_mount\apps\PENetwork"
+@REM mkdir _mount\apps\PENetwork
+@REM 7z x %HOME%\Downloads\app\PENetwork_x64.7z -o"_mount\apps\PENetwork"
 
 @REM ---------------------------
 echo Adding custom Winpeshl.ini...
@@ -121,16 +127,15 @@ copy "winpeshl.ini" "_mount\Windows\System32"
 echo Adding README...
 copy "README.md" "_mount\"
 
-@REM ---------------------------
-@REM commit and unmount
-Dism /Unmount-Image /MountDir:_mount /commit
+
 
 @REM ---------------------------
 @REM https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/compact-os?view=windows-11#image-optimization
 @REM image optimization
 mkdir temp
-Dism /Mount-Image /ImageFile:%IMGSRC% /index:1 /MountDir:_mount
+@REM Dism /Mount-Image /ImageFile:%IMGSRC% /index:1 /MountDir:_mount
 Dism /Cleanup-Image /Image="_mount" /StartComponentCleanup /ResetBase /ScratchDir:temp
+@REM commit and unmount
 Dism /Unmount-Image /MountDir:_mount /Commit
 Dism /Export-Image /SourceImageFile:%IMGSRC% /SourceIndex:1 /DestinationImageFile:WinPE_amd64\media\sources\boot_cleaned.wim
 del WinPE_amd64\media\sources\boot.wim
