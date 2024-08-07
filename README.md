@@ -29,6 +29,18 @@ or
 manage-bde -unlock D: -rp YOUR-BITLOCKER-PASSWORD
 ```
 
+## Download pre-built image
+Please check [release page](https://github.com/y0umu/My-WinPE/releases).
+
+Tools like [ventoy](https://www.ventoy.net) could help you write the image to a flashdisk. 
+
+Please do not blame me if the repo burns your house or drives your pets mad. The configs, recipes and scripts are made public in the hope that they would be usefull, but I take no responsibility for anything you do with this repo and its consequences.
+
+There are also legal concerns. If it bothers you, please open an issue.
+
+<!-- * Current build requires you to copy your `C:\Windows\System32\oledlg.dll` to the PE image. Probably not proper to redistribute. -->
+* ~~It is not clear whether it is legal to redistribute Windows PE images, the 3rd-parth utilites (especially the proprietary ones) and the Shizuku wallpaper.~~ Including shizuku images violates rules in [壁紙について](https://suishoshizuku.com/wallpaper/). Distributed iso images will not include them.
+
 ### Other useful links
 The Arch Wiki page on Windows PE: https://wiki.archlinux.org/title/Windows_PE
 
@@ -43,12 +55,3 @@ You probably need a legal copy of Windows to proceed. Generally, you should foll
 
 **Notice** The partition table of your flash disk has to be MBR, otherwise `MakeWinPEMedia /ufd` [would fail](https://docs.microsoft.com/en-us/answers/questions/249767/makewinpemedia-fails-for-me.html).
 
-## Looks cool, do you have a pre-built thing for me to try instantly?
-~~You can try the [demo ISO image](https://link.storjshare.io/s/jwrfkuqnobbzrc3buvgjm26ydvqa/pub/WinPE_amd64.iso).~~ Tools like [ventoy](https://www.ventoy.net) could help you write the image to a flashdisk. 
-
-Please do not blame me if the repo burns your house or drives your pets mad. The configs, recipes and scripts are made public in the hope that they would be usefull, but I take no responsibility for anything you do with this repo and its consequences.
-
-There are also legal concerns. If it bothers you, please open an issue.
-
-<!-- * Current build requires you to copy your `C:\Windows\System32\oledlg.dll` to the PE image. Probably not proper to redistribute. -->
-* ~~It is not clear whether it is legal to redistribute Windows PE images, the 3rd-parth utilites (especially the proprietary ones) and the Shizuku wallpaper.~~ Including shizuku images violates rules in [壁紙について](https://suishoshizuku.com/wallpaper/). Distributed iso images will not include them.
