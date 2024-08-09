@@ -78,8 +78,8 @@
     #     [logoff] (Logoff)
     #     [suspend] (Standby)
     #     [reboot] (Reboot)
-        [exec] (Reboot) {X:\apps\SysinternalsSuite\psshutdown64.exe /accepteula -t 1 -f -r}
+        [exec] (Reboot) {Wpeutil Reboot}
     #     [shutdown] (Shutdown)
-        [exec] (Shutdown) {X:\apps\SysinternalsSuite\psshutdown64.exe /accepteula -t 1 -f -k}
+        [exec] (Shutdown) {Wpeutil Shutdown}
         [end]
 [end]
