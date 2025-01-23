@@ -70,6 +70,7 @@ mkdir "_mount\apps\SysinternalsSuite"
 xcopy /E "D:\Applications\bbLean" "_mount\apps\bbLean\"
 copy "bbLean_modified_config\menu.rc" "_mount\apps\bbLean\"
 copy "bbLean_modified_config\blackbox.rc" "_mount\apps\bbLean\"
+copy "bbLean_modified_config\bbLeanBar.rc" "_mount\apps\bbLean\plugins\bbLeanBar\"
 copy "bbLean_modified_config\styles\3colours\mod_blue" "_mount\apps\bbLean\styles\3colours\"
 @REN Optionally add shizuku wallpaper. Should not be included in distributed image.
 @REM copy "%HOME%\Pictures\Shizuku\ShizukuWP11_1920x1080.jpg" "_mount\apps\bbLean\backgrounds\"

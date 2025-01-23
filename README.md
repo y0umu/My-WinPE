@@ -16,7 +16,7 @@ Utilities include:
 
 ## Screenshots
 
-![desktop](screenshots/desktop.png)![doublecmd](screenshots/doublecmd.png)
+![desktop](screenshots/desktop.png)
 
 ## Useful tricks
 

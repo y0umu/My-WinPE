@@ -9,9 +9,10 @@ style.credits: modified by grischka - nov 2003
 style.comments: changed fonts and made it a bit lighter
 
 !-- background --
-# rootCommand: bsetroot -gradient interlacedverticalgradient -from rgb:ad/d8/e6 -to rgb:00/00/ff backgrounds/3colours/blue.jpg -hue 120
+rootCommand: bsetroot -gradient interlacedverticalgradient -from rgb:ad/d8/e6 -to rgb:00/00/ff backgrounds/3colours/blue.jpg -hue 120
 # rootCommand: bsetroot -solid rgb:ff/ff/ff -center backgrounds/ShizukuWP11_1920x1080.jpg
-rootCommand: bsetroot -gradient interlacedverticalgradient -from rgb:ad/d8/e6 -to rgb:00/00/ff -center backgrounds/ShizukuWP11_1920x1080.jpg
+# rootCommand: bsetroot -gradient interlacedverticalgradient -from rgb:ad/d8/e6 -to rgb:00/00/ff -center backgrounds/ShizukuWP11_1920x1080.jpg
+# rootCommand: bsetroot -gradient interlacedverticalgradient -from rgb:ad/d8/e6 -to rgb:00/00/ff
 
 !-- toolbar --
 toolbar.appearance: sunken interlaced solid border
@@ -19,7 +20,7 @@ toolbar.textColor: #575757
 toolbar.borderColor: #0000ff
 toolbar.borderWidth: 1
 toolbar.marginWidth: 2
-toolbar.font: 
+#toolbar.font: 
 toolbar.alignment: center
 toolbar.label.appearance: parentrelative
 toolbar.label.textColor: #000000
@@ -48,7 +49,7 @@ menu.title.textColor: #ffffff
 menu.title.borderColor: #0000ff
 menu.title.borderWidth: 1
 menu.title.marginWidth: 3
-menu.title.font:
+#menu.title.font:
 menu.title.alignment: center
 menu.frame.appearance: flat vertical gradient border
 menu.frame.color1: #add8e6
@@ -59,7 +60,7 @@ menu.frame.disabledColor: #405396
 menu.frame.borderColor: #0000ff
 menu.frame.borderWidth: 1
 menu.frame.marginWidth: 1
-menu.frame.font:
+#menu.frame.font:
 menu.frame.alignment: left
 menu.active.appearance: sunken pipecross gradient
 menu.active.color1: #707070
@@ -124,7 +125,7 @@ window.frame.focus.borderColor: #0000ff
 window.frame.unfocus.borderColor: #0000ff
 window.frame.borderWidth: 1
 window.handleHeight: 5
-window.font:
+#window.font:
 window.alignment: center
 
 !-- slit --
