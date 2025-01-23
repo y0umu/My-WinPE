@@ -47,11 +47,16 @@ set "HOME=D:\%USERNAME%"
 @REM busybox (https://frippery.org/busybox/) and so on
 mkdir "_mount\apps\my-cli-collection"
 copy "D:\Applications\my-cli-collection\busybox.exe" "_mount\apps\my-cli-collection\"
+copy "D:\Applications\my-cli-collection\busybox64.exe" "_mount\apps\my-cli-collection\"
+copy "D:\Applications\my-cli-collection\busybox64u.exe" "_mount\apps\my-cli-collection\"
 @REM copy "D:\Applications\my-cli-collection\WolCmd.exe" "_mount\apps\my-cli-collection\"
+7z e "%HOME%\Downloads\app\croc_v10.2.1_Windows-64bit.zip" croc.exe -o"_mount\apps\my-cli-collection\"
+
 
 @REM Systeminternalsuite (https://docs.microsoft.com/en-us/sysinternals)
 mkdir "_mount\apps\SysinternalsSuite"
-xcopy /E "D:\Applications\SysinternalsSuite" "_mount\apps\SysinternalsSuite\"
+@REM xcopy /E "D:\Applications\SysinternalsSuite" "_mount\apps\SysinternalsSuite\"
+7z x "%HOME%\Downloads\app\SysinternalsSuite.zip" -o"_mount\apps\SysinternalsSuite\"
 
 @REM WinFR (Windows File Recovery) (https://aka.ms/winfrhelp)
 @REM You have to obtain it from Microsoft Store first
@@ -59,7 +64,7 @@ xcopy /E "D:\Applications\SysinternalsSuite" "_mount\apps\SysinternalsSuite\"
 
 @REM Double commander (explorer.exe alternative and much more) https://doublecmd.sourceforge.io/
 @REM xcopy /E "D:\Applications\doublecmd" "_mount\apps\doublecmd\"
-7z x "%HOME%\Downloads\app\doublecmd-1.1.16.x86_64-win64.zip" -o"_mount\apps\"
+7z x "%HOME%\Downloads\app\doublecmd-1.1.22.x86_64-win64.zip" -o"_mount\apps\"
 
 @REM bbLean (a shell) http://bb4win.sourceforge.net/bblean/
 xcopy /E "D:\Applications\bbLean" "_mount\apps\bbLean\"
@@ -100,11 +105,15 @@ mkdir "_mount\apps\geany"
 
 @REM Detect-It-Easy (https://github.com/horsicq/Detect-It-Easy)
 mkdir "_mount\apps\Detect-It-Easy"
-7z x %HOME%\Downloads\app\die_win64_portable_3.09_x64.zip -o"_mount\apps\Detect-It-Easy"
+7z x "%HOME%\Downloads\app\die_win64_portable_3.09_x64.zip" -o"_mount\apps\Detect-It-Easy"
 
 @REM PDFreader (https://www.sumatrapdfreader.org/)
 mkdir "_mount\apps\SumatraPDF"
-7z x %HOME%\Downloads\app\SumatraPDF-3.5.2-64.zip -o"_mount\apps\SumatraPDF"
+7z x "%HOME%\Downloads\app\SumatraPDF-3.5.2-64.zip" -o"_mount\apps\SumatraPDF"
+
+@REM JPEGView (https://github.com/sylikc/jpegview)
+mkdir "_mount\apps\JPEGView"
+7z x "%HOME%\Downloads\app\JPEGView64_1.3.46.7z" -o"_mount\apps\JPEGView"
 
 @REM some drivers
 @REM Dism /Add-Driver /Image:_mount /Driver:d:\Drivers\WLAN_Realtek_8852AE\netrtwlane6.inf
@@ -114,9 +123,10 @@ mkdir "_mount\apps\SumatraPDF"
 @REM 7z x %HOME%\Downloads\app\PENetwork_x64.7z -o"_mount\apps\PENetwork"
 
 @REM ---------------------------
-echo Adding custom Winpeshl.ini...
+echo Adding custom Winpeshl.ini and startnet.cmd... 
 @REM https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpeshlini-reference-launching-an-app-when-winpe-starts?view=windows-11
-copy "winpeshl.ini" "_mount\Windows\System32"
+copy "winpe_startup_scripts\winpeshl.ini" "_mount\Windows\System32"
+copy "winpe_startup_scripts\startnet.cmd" "_mount\Windows\System32"
 
 @REM ---------------------------
 @REM echo Adding a script
@@ -127,7 +137,11 @@ copy "winpeshl.ini" "_mount\Windows\System32"
 echo Adding README...
 copy "README.md" "_mount\"
 
-
+@REM ---------------------------
+echo Changing time zone and locals...
+dism /image:_mount /Set-TimeZone:"China Standard Time"
+dism /image:_mount /Set-SysLocale:zh-CN
+dism /image:_mount /Set-UserLocale:zh-CN
 
 @REM ---------------------------
 @REM https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/compact-os?view=windows-11#image-optimization

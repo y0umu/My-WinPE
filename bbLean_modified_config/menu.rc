@@ -12,25 +12,24 @@
     #[path] (Quick) {APPDATA\Microsoft\Internet Explorer\Quick Launch}
     [nop]
     [exec] (README) {notepad X:\README.md}
-    [exec] (Startnet.cmd) {X:\Windows\System32\cmd /k X:\Windows\System32\startnet.cmd}
-    [exec] (busybox shell) {X:\apps\my-cli-collection\busybox.exe sh -i}
-    [exec] (File manager (Double Commander)) {X:\apps\doublecmd\doublecmd.exe}
+    #[exec] (Startnet.cmd) {X:\Windows\System32\cmd /k X:\Windows\System32\startnet.cmd}
+    [exec] (busybox shell) {X:\apps\my-cli-collection\busybox64u.exe sh -i}
+    [exec] (File Manager (Double Commander)) {X:\apps\doublecmd\doublecmd.exe}
+    [exec] (Task Manager) {taskmgr.exe}
+    [exec] (Process Monitor) {X:\apps\SysinternalsSuite\Procmon64.exe /accepteula}
     [exec] (Process Explorer) {X:\apps\SysinternalsSuite\procexp64.exe /accepteula}
-    #[exec] (PENetwork) {X:\apps\PENetwork\PENetwork.exe} 
+    [exec] (SumatraPDF) {X:\apps\SumatraPDF\SumatraPDF-3.5.2-64.exe}
+    [exec] (Image Viewer (JPEGView)) {X:\apps\JPEGView\JPEGView.exe}
+    [exec] (Lightweight IDE (Geany)) {X:\apps\geany\bin\geany.exe}
+    [path] (All Apps) {X:\apps}
     [nop]
     [submenu] (Utilities)
         [submenu] (File recovery)
             [exec] (TestDisk and PhotoRec) {cmd /k "cd /d X:\apps\testdisk-7.2"}
-            #[exec] (Recuva) {X:\apps\Recuva\recuva64.exe}
-            #[exec] (DiskGenius) {X:\apps\DiskGenius\DiskGenius.exe}
             [end]
-        #[exec] (Speccy) {X:\apps\Speccy\Speccy64.exe}
-        [exec] (SumatraPDF) {X:\apps\SumatraPDF\SumatraPDF-3.5.2-64.exe}
-        [exec] (Lightweight IDE (Geany)) {X:\apps\geany\bin\geany.exe}
         [exec] (Detect-It-Easy) {cmd /k "cd /d X:\apps\Detect-It-Easy"}
         [exec] (SysinternalsSuite) {cmd /k "cd /d X:\apps\SysinternalsSuite"}
         [exec] (Offline NT Password and Registry Editor) {cmd /k "cd /d X:\apps\chntpw_mingw64"}
-        [path] (Apps) {X:\apps}
         [end]
     # Paths with spaces should have quotes:
     # [exec] (Firefox) {"PROGRAM_FILES\Mozilla Firefox\firefox.exe"}
@@ -71,8 +70,8 @@
         [restart] (Restart)
         [exit]  (Quit)
         [end]
-    # Currently these commands won't work in WinPE
-    # workaround with psshutdown
+    # Default windows shutdown commands won't work in WinPE
+    # Use Wpeutil or psshutdown instead
     [submenu] (Goodbye)
     #     [lockworkstation] (Lock)
     #     [logoff] (Logoff)

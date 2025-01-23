@@ -18,7 +18,7 @@ Utilities include:
 
 ![desktop](screenshots/desktop.png)![doublecmd](screenshots/doublecmd.png)
 
-## Use cases
+## Useful tricks
 
 ### Unlock bitlocker
 
@@ -33,6 +33,9 @@ or
 ```cmd
 manage-bde -unlock D: -rp YOUR-BITLOCKER-PASSWORD
 ```
+
+### Update Intel Management Engine (Intel ME)
+Find the driver provided by your motherboard manufacturer. You can find an example at `update_me.cmd`. 
 
 ## Download pre-built image
 
