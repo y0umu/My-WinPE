@@ -13,7 +13,9 @@
     [nop]
     [exec] (README) {notepad X:\README.md}
     #[exec] (Startnet.cmd) {X:\Windows\System32\cmd /k X:\Windows\System32\startnet.cmd}
-    [exec] (busybox shell) {X:\apps\my-cli-collection\busybox64u.exe sh -i}
+    #[exec] (busybox shell) {X:\apps\my-cli-collection\busybox64u.exe sh -i}
+    [exec] (busybox shell) {X:\Scripts\busybox-sh.cmd}
+    [exec] (cmd) {X:\Windows\System32\cmd /k X:\Scripts\cmd_rc.cmd}
     [exec] (File Manager (Double Commander)) {X:\apps\doublecmd\doublecmd.exe}
     [exec] (Task Manager) {taskmgr.exe}
     [exec] (Process Monitor) {X:\apps\SysinternalsSuite\Procmon64.exe /accepteula}
