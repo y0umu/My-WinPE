@@ -50,7 +50,7 @@ copy "D:\Applications\my-cli-collection\busybox.exe" "_mount\apps\my-cli-collect
 copy "D:\Applications\my-cli-collection\busybox64.exe" "_mount\apps\my-cli-collection\"
 copy "D:\Applications\my-cli-collection\busybox64u.exe" "_mount\apps\my-cli-collection\"
 @REM copy "D:\Applications\my-cli-collection\WolCmd.exe" "_mount\apps\my-cli-collection\"
-7z e "%HOME%\Downloads\app\croc_v10.2.1_Windows-64bit.zip" croc.exe -o"_mount\apps\my-cli-collection\"
+7z e "%HOME%\Downloads\app\croc_v10.2.2_Windows-64bit.zip" croc.exe -o"_mount\apps\my-cli-collection\"
 
 
 @REM Systeminternalsuite (https://docs.microsoft.com/en-us/sysinternals)
@@ -64,7 +64,7 @@ mkdir "_mount\apps\SysinternalsSuite"
 
 @REM Double commander (explorer.exe alternative and much more) https://doublecmd.sourceforge.io/
 @REM xcopy /E "D:\Applications\doublecmd" "_mount\apps\doublecmd\"
-7z x "%HOME%\Downloads\app\doublecmd-1.1.22.x86_64-win64.zip" -o"_mount\apps\"
+7z x "%HOME%\Downloads\app\doublecmd-1.1.26.x86_64-win64.zip" -o"_mount\apps\"
 
 @REM bbLean (a shell) http://bb4win.sourceforge.net/bblean/
 xcopy /E "D:\Applications\bbLean" "_mount\apps\bbLean\"
@@ -102,12 +102,13 @@ xcopy /E "%HOME%\lab\chntpw_mingw64\" "_mount\apps\chntpw_mingw64\"
 @REM echo 1 > "_mount\apps\Speccy\portable.dat"
 
 @REM Geany (https://www.geany.org)
-mkdir "_mount\apps\geany"
-7z x %HOME%\Downloads\app\geany-2.0_setup.exe -x!$* -o"_mount\apps\geany"
+@REM version 2.1 Requires OPENGL32.dll which does not exsist in WinPE, removing it
+@REM mkdir "_mount\apps\geany"
+@REM 7z x %HOME%\Downloads\app\geany-2.1_setup.exe -x!$* -o"_mount\apps\geany"
 
 @REM Detect-It-Easy (https://github.com/horsicq/Detect-It-Easy)
 mkdir "_mount\apps\Detect-It-Easy"
-7z x "%HOME%\Downloads\app\die_win64_portable_3.09_x64.zip" -o"_mount\apps\Detect-It-Easy"
+7z x "%HOME%\Downloads\app\die_win64_portable_3.10_x64.zip" -o"_mount\apps\Detect-It-Easy"
 
 @REM PDFreader (https://www.sumatrapdfreader.org/)
 mkdir "_mount\apps\SumatraPDF"
@@ -136,11 +137,6 @@ mkdir _mount\Scripts
 @REM copy tools\install_double_cmd_as_default.reg _mount\Scripts
 copy tools\busybox-sh.cmd _mount\Scripts
 copy tools\cmd_rc.cmd _mount\Scripts
-
-
-@REM ---------------------------
-echo Adding README...
-copy "README.md" "_mount\"
 
 @REM ---------------------------
 echo Changing time zone and locals...

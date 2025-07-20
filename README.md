@@ -1,71 +1,57 @@
 # My WinPE
 
-## Description
+There is also an [English version](README_en.md) of README
 
-This my personal [Windows PE (WinPE)](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-intro) build. It primarily reflects my personal interests. It never intends to compete with those Linux LiveCDs, nor does it want to substitute for [wepe](https://www.wepe.com.cn),  [老毛桃winpe](https://www.laomaotao.net) or [Hiren's BootCD](https://www.hirensbootcd.org).
+## 简介
 
-Utilities include:
+这是我自己的 [Windows PE (WinPE)](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-intro) 镜像。它主要反映我个人的偏好。基本上这是一个“纯净版”的 WinPE，带有一个简单的 Blackbox 风格界面。咱并不打算与那些 Linux LiveCD 竞争，也不打算替代那些“功能齐全”的预构建 Windows PE 镜像，例如 [wepe](https://www.wepe.com.cn)、[老毛桃winpe](https://www.laomaotao.net) 或 [Hiren's BootCD](https://www.hirensbootcd.org)。
 
-* [bbLean](http://bb4win.sourceforge.net/bblean/) that establishs an old-school user interface
-* [busybox](https://frippery.org/busybox/) that yields some unix feel
-* [Double Commander](https://doublecmd.sourceforge.io/) that replaces explorer.exe. I am including it because you can edit text files, read binary file in hex format, view images with this awesome utility. <!-- * [DiskGenius](https://www.diskgenius.cn/) --> <!-- * [WinFR (Windows File Recovery)](https://aka.ms/winfrhelp) that recovers deleted files -->
-* [TestDisk and PhotoRec 7.2](https://www.cgsecurity.org/) that covers disk and file recovery
-* [Offline NT Password & Registry Editor](https://pogostick.net/~pnh/ntpasswd/) that comes to rescue if you have to unlock your accidentally locked local Windows account or even blank its password. You will need a [Windows version](https://github.com/y0umu/chntpw_mingw64).
+包含的一些工具包括：
+* [bbLean](http://bb4win.sourceforge.net/bblean/)，提供了一个复古风格的用户界面；
+* [busybox](https://frippery.org/busybox/)，带来了一些类 Unix 的体验；
+* [Double Commander](https://doublecmd.sourceforge.io/)，用于替换 explorer.exe (WinPE 里面没有 explorer.exe)。这个强大的工具能够编辑文本文件、以十六进制格式读取二进制文件、查看图片等等；
+* [TestDisk 和 PhotoRec](https://www.cgsecurity.org/)，用于磁盘和文件恢复；
+* 离线 NT 密码与注册表编辑器（https://pogostick.net/~pnh/ntpasswd/，链接似乎已经失效了），以备你不知为何锁定了你那几千个虚拟机之中的某个 Windows 账户或忘记了它的密码。你当然需要一个 Windows 版本的 [chntpw](https://github.com/y0umu/chntpw_mingw64) 。
 
-**Notice** Due to the mechanism of `winpeshl.exe`, you need to terminate the last running process listed in `%SYSTEMROOT%\System32\winpeshl.ini` to reboot. For my build, that is bbLean/Blackbox. To do so, right click the desktop and locate Blackbox > Quit.
+部分非自由软件（非 FOSS）应用已经不再包含。可以检查 `my-winpe.cmd` 中被注释掉的行查看是哪些软件。
 
-## Screenshots
+## 截图
+![screenshot_1_testdisk.png](screenshots/screenshot_1_testdisk.png)
+![screenshot_2_chntpw.png](screenshots/screenshot_2_chntpw.png)
 
-![desktop](screenshots/desktop.png)
+## 预构建镜像
+请查看 [发布页面](https://github.com/y0umu/My-WinPE/releases)。
 
-## Useful tricks
+注意，我将这些 ISO 镜像放在发布页面上，**仅是出于我个人的方便的目的**。通过下载这些 ISO 镜像，你即表示你愿意自行承担有关风险（无论是法律上还是技术上的风险）。
 
-### Unlock bitlocker
-
-Assume you have backed up your bitlocker keys/passwords in advance, you can unlock with
-
+## 有用的技巧
+### 解锁 BitLocker
+假设你已经提前备份了 BitLocker 密钥/密码，可以通过以下命令解锁：
 ```cmd
 manage-bde -unlock D: -rk E:\path\to\your\key
 ```
-
-or
-
+或者：
 ```cmd
 manage-bde -unlock D: -rp YOUR-BITLOCKER-PASSWORD
 ```
 
-### Update Intel Management Engine (Intel ME)
-Find the driver provided by your motherboard manufacturer. You can find an example at `update_me.cmd`. 
+### 更新 Intel 管理引擎（Intel ME）
+你得自己去找主板厂商提供的驱动程序。 `update_me.cmd` 提供了一个更新 Intel ME 的示例。
 
-## Download pre-built image
+### 重启 WinPE
+由于 `winpeshl.exe` 的机制，你需要终止 `%SYSTEMROOT%\System32\winpeshl.ini` 中列出的最后一个运行进程才能重启。在我的镜像中，这个进程是 bbLean/Blackbox。你可以右键点击桌面，选择 Blackbox > Quit 来实现。你也可以运行 `wpeutil reboot`。
 
-Please check [release page](https://github.com/y0umu/My-WinPE/releases).
+## 如何构建这个 WinPE 镜像
 
-Tools like [ventoy](https://www.ventoy.net) could help you write the image to a flashdisk.
+你大概需要一个合法的 Windows 副本来进行操作。大致步骤如下：
+1. 安装 ADK **以及** ADK Windows PE 插件。参考 [ADK](https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install) 的文档。
+2. 以管理员权限打开终端，运行 `C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\DandISetEnv.bat`。
+3. 运行 `copype amd64 WinPE_amd64`。
+4. 检查并修改 `my-winpe.cmd`。获取所需的工具后，运行 `my-winpe.cmd`。
+5. （可选）在虚拟机中测试你的镜像。
+6. 使用 `MakeWinPEMedia /ufd WinPE_amd64 J:` 将其写入U盘（假设你的U盘盘符为 J）。或者你也可以使用 [ventoy](https://www.ventoy.net)。
 
-Please do not blame me if the repo burns your house or drives your pets mad. The configs, recipes and scripts are made public in the hope that they would be usefull, but I take no responsibility for anything you do with this repo and its consequences.
+**注意**：如果用 `MakeWinPEMedia` 创建启动U盘，你的U盘的分区表必须为 MBR，否则 `MakeWinPEMedia /ufd` 会失败。更多信息可参考 [此链接](https://docs.microsoft.com/en-us/answers/questions/249767/makewinpemedia-fails-for-me.html)。
 
-There are also legal concerns. If it bothers you, please open an issue.
-
-<!-- * Current build requires you to copy your `C:\Windows\System32\oledlg.dll` to the PE image. Probably not proper to redistribute. -->
-
-* ~~It is not clear whether it is legal to redistribute Windows PE images, the 3rd-parth utilites (especially the proprietary ones) and the Shizuku wallpaper.~~ Including shizuku images violates rules in [壁紙について](https://suishoshizuku.com/wallpaper/). Distributed iso images will not include them.
-
-## How to build the WinPE image
-
-You probably need a legal copy of Windows to proceed. Generally, you should follow these steps:
-
-1. Install ADK **and** ADK Windows PE Addon. Follow this documention on [ADK](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-create-usb-bootable-drive) and this on [creating bootable media](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-create-usb-bootable-drive).
-2. Open a terminal with administrative privilege and run `C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\DandISetEnv.bat`.
-3. Run `copype amd64 WinPE_amd64`.
-4. Check and modify `my-winpe.cmd`. Obtain the utilities you need. Then run `my-winpe.cmd`.
-5. Optionally test your image in a virtual machine.
-6. Write it to a flash disk with `MakeWinPEMedia /ufd WinPE_amd64 J:` (assuming your flash disk has drive letter J).
-
-**Notice** The partition table of your flash disk has to be MBR, otherwise `MakeWinPEMedia /ufd` [would fail](https://docs.microsoft.com/en-us/answers/questions/249767/makewinpemedia-fails-for-me.html).
-
-> Instead of running `MakeWinPEMedia /ufd WinPE_amd64 J:`, you can try the [ventoy](https://www.ventoy.net) method as well.
-
-### Other useful links
-
-The Arch Wiki page on Windows PE: https://wiki.archlinux.org/title/Windows_PE
+### 其他有用链接
+Arch Wiki 上的 Windows PE 页面：https://wiki.archlinux.org/title/Windows_PE

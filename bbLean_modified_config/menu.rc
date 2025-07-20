@@ -11,7 +11,6 @@
     #[path] (Desktop) {DESKTOPDIRECTORY|COMMON_DESKTOPDIRECTORY}
     #[path] (Quick) {APPDATA\Microsoft\Internet Explorer\Quick Launch}
     [nop]
-    [exec] (README) {notepad X:\README.md}
     #[exec] (Startnet.cmd) {X:\Windows\System32\cmd /k X:\Windows\System32\startnet.cmd}
     #[exec] (busybox shell) {X:\apps\my-cli-collection\busybox64u.exe sh -i}
     [exec] (busybox shell) {X:\Scripts\busybox-sh.cmd}
@@ -22,7 +21,6 @@
     [exec] (Process Explorer) {X:\apps\SysinternalsSuite\procexp64.exe /accepteula}
     [exec] (SumatraPDF) {X:\apps\SumatraPDF\SumatraPDF-3.5.2-64.exe}
     [exec] (Image Viewer (JPEGView)) {X:\apps\JPEGView\JPEGView.exe}
-    [exec] (Lightweight IDE (Geany)) {X:\apps\geany\bin\geany.exe}
     [path] (All Apps) {X:\apps}
     [nop]
     [submenu] (Utilities)
