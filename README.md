@@ -20,7 +20,7 @@ There is also an [English version](README_en.md) of README
 ![screenshot_2_chntpw.png](screenshots/screenshot_2_chntpw.png)
 
 ## 预构建镜像
-请查看 [发布页面](https://github.com/y0umu/My-WinPE/releases)。
+请查看 [发布页面](https://github.com/y0umu/My-WinPE/releases/latest)。
 
 注意，我将这些 ISO 镜像放在发布页面上，**仅是出于我个人的方便的目的**。通过下载这些 ISO 镜像，你即表示你愿意自行承担有关风险（无论是法律上还是技术上的风险）。
 

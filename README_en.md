@@ -22,7 +22,7 @@ There used to be some useful but non-FOSS applications. Parts of them are not in
 
 ## Pre-built image
 
-Check [release page](https://github.com/y0umu/My-WinPE/releases).
+Check [release page](https://github.com/y0umu/My-WinPE/releases/latest).
 
 Please take note that I put these ISO images on release page for **my personal convenience only**.
 By downloading the ISO images, you agree that you are using them at your own risk, being legal or technological.
