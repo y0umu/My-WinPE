@@ -50,7 +50,7 @@ copy "D:\Applications\my-cli-collection\busybox.exe" "_mount\apps\my-cli-collect
 copy "D:\Applications\my-cli-collection\busybox64.exe" "_mount\apps\my-cli-collection\"
 copy "D:\Applications\my-cli-collection\busybox64u.exe" "_mount\apps\my-cli-collection\"
 @REM copy "D:\Applications\my-cli-collection\WolCmd.exe" "_mount\apps\my-cli-collection\"
-7z e "%HOME%\Downloads\app\croc_v10.2.2_Windows-64bit.zip" croc.exe -o"_mount\apps\my-cli-collection\"
+@REM 7z e "%HOME%\Downloads\app\croc_v10.2.2_Windows-64bit.zip" croc.exe -o"_mount\apps\my-cli-collection\"
 
 
 @REM Systeminternalsuite (https://docs.microsoft.com/en-us/sysinternals)
@@ -64,7 +64,7 @@ mkdir "_mount\apps\SysinternalsSuite"
 
 @REM Double commander (explorer.exe alternative and much more) https://doublecmd.sourceforge.io/
 @REM xcopy /E "D:\Applications\doublecmd" "_mount\apps\doublecmd\"
-7z x "%HOME%\Downloads\app\doublecmd-1.1.26.x86_64-win64.zip" -o"_mount\apps\"
+7z x "%HOME%\Downloads\app\doublecmd-1.1.32.x86_64-win64.zip" -o"_mount\apps\"
 
 @REM bbLean (a shell) http://bb4win.sourceforge.net/bblean/
 xcopy /E "D:\Applications\bbLean" "_mount\apps\bbLean\"
@@ -91,6 +91,7 @@ copy "bbLean_modified_config\styles\3colours\mod_blue" "_mount\apps\bbLean\style
 
 @REM chntpw (compiled from source with mingw64 myself)
 @REM https://pogostick.net/~pnh/ntpasswd/
+@REM The modified source is at https://github.com/y0umu/chntpw_mingw64
 xcopy /E "%HOME%\lab\chntpw_mingw64\" "_mount\apps\chntpw_mingw64\"
 
 @REM Recuva & Speccy (https://www.piriform.com)
@@ -118,12 +119,13 @@ mkdir "_mount\apps\SumatraPDF"
 mkdir "_mount\apps\JPEGView"
 7z x "%HOME%\Downloads\app\JPEGView64_1.3.46.7z" -o"_mount\apps\JPEGView"
 
+@REM PENetwork (https://www.penetworkmanager.de/)
+mkdir _mount\apps\PENetwork
+7z x %HOME%\Downloads\app\\PENetwork\PENetwork_x64.7z -o"_mount\apps\PENetwork"
+
+@REM ---------------------------
 @REM some drivers
 @REM Dism /Add-Driver /Image:_mount /Driver:d:\Drivers\WLAN_Realtek_8852AE\netrtwlane6.inf
-
-@REM PENetwork (https://www.penetworkmanager.de/)
-@REM mkdir _mount\apps\PENetwork
-@REM 7z x %HOME%\Downloads\app\PENetwork_x64.7z -o"_mount\apps\PENetwork"
 
 @REM ---------------------------
 echo Adding custom Winpeshl.ini and startnet.cmd... 

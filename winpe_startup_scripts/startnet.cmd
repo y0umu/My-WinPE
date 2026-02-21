@@ -32,13 +32,13 @@ assoc .md=markdownfile
 assoc .txt=textfile
 assoc .xml=xmlfile
 
-ftype JSFile="X:\apps\geany\bin\geany.exe" "%%1"
-ftype jsonfile="X:\apps\geany\bin\geany.exe" "%%1"
-ftype inifile="X:\apps\geany\bin\geany.exe" "%%1"
-ftype logfile="X:\apps\geany\bin\geany.exe" "%%1"
-ftype markdownfile="X:\apps\geany\bin\geany.exe" "%%1"
-ftype textfile="X:\apps\geany\bin\geany.exe" "%%1"
-ftype xmlfile="X:\apps\geany\bin\geany.exe" "%%1"
+@REM ftype JSFile="%SYSTEMROOT%\notepad.exe" "%%1"
+@REM ftype jsonfile="%SYSTEMROOT%\notepad.exe" "%%1"
+ftype inifile="%SYSTEMROOT%\notepad.exe" "%%1"
+ftype logfile="%SYSTEMROOT%\notepad.exe" "%%1"
+ftype markdownfile="%SYSTEMROOT%\notepad.exe" "%%1"
+ftype textfile="%SYSTEMROOT%\notepad.exe" "%%1"
+@REM ftype xmlfile="%SYSTEMROOT%\notepad.exe" "%%1"
 
 @REM web pages
 assoc .htm=htmlfile

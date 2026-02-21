@@ -13,7 +13,7 @@ There is also an [English version](README_en.md) of README
 * [TestDisk 和 PhotoRec](https://www.cgsecurity.org/)，用于磁盘和文件恢复；
 * 离线 NT 密码与注册表编辑器（https://pogostick.net/~pnh/ntpasswd/，链接似乎已经失效了），以备你不知为何锁定了你那几千个虚拟机之中的某个 Windows 账户或忘记了它的密码。你当然需要一个 Windows 版本的 [chntpw](https://github.com/y0umu/chntpw_mingw64) 。
 
-部分非自由软件（非 FOSS）应用已经不再包含。可以检查 `my-winpe.cmd` 中被注释掉的行查看是哪些软件。
+可以检查 `my-winpe.cmd` 包含了哪些软件。
 
 ## 截图
 ![screenshot_1_testdisk.png](screenshots/screenshot_1_testdisk.png)
@@ -40,6 +40,16 @@ manage-bde -unlock D: -rp YOUR-BITLOCKER-PASSWORD
 
 ### 重启 WinPE
 由于 `winpeshl.exe` 的机制，你需要终止 `%SYSTEMROOT%\System32\winpeshl.ini` 中列出的最后一个运行进程才能重启。在我的镜像中，这个进程是 bbLean/Blackbox。你可以右键点击桌面，选择 Blackbox > Quit 来实现。你也可以运行 `wpeutil reboot`。
+
+### 添加或修改环境变量
+例如，如果你想在 PE 中更改 `PATH` 变量：
+- 挂载 wim/iso 文件
+- 找到注册表单元 `Windows\System32\config\SYSTEM`
+- 使用注册表编辑器 (regedit) 在主机上的 `HKLM` 键下加载该注册表单元 (hive)
+- 将其命名为 `zzz_system`
+- 找到键 `HKEY_LOCAL_MACHINE\zzz_system\ControlSet001\Control\Session Manager\Environment`
+- 你会看到一些常用变量，例如 `PATH` 和 `TEMP`
+- 添加或修改完成后，请务必卸载该注册表单元。
 
 ## 如何构建这个 WinPE 镜像
 

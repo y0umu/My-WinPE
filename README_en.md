@@ -12,7 +12,7 @@ To name a few utilities included:
 * [TestDisk and PhotoRec](https://www.cgsecurity.org/) that covers disk and file recovery
 * Offline NT Password & Registry Editor (https://pogostick.net/~pnh/ntpasswd/, link seems broken) that comes to rescue if you have to unlock your accidentally locked some Windows account or even blank its password in your thousands of virtual machines. A [Windows version of chntpw](https://github.com/y0umu/chntpw_mingw64) is ready for use.
 
-There used to be some useful but non-FOSS applications. Parts of them are not included any longer. Check `my-winpe.cmd` and take a look at the lines that are commented out.
+Check `my-winpe.cmd` to see what is included.
 
 ## Screenshots
 
@@ -49,6 +49,16 @@ Find the driver provided by your motherboard manufacturer. You can find an examp
 
 ### Reboot WinPE
 Due to the mechanism of `winpeshl.exe`, you need to terminate the last running process listed in `%SYSTEMROOT%\System32\winpeshl.ini` to reboot. For my build, that is bbLean/Blackbox. To do so, right click the desktop and locate Blackbox > Quit. You can as well run `wpeutil reboot`.
+
+### Add or modify environemt variables
+For example, if you want to change the `PATH` variable in PE:
+- Mount the wim/iso file
+- Locate the hive `Windows\System32\config\SYSTEM`
+- Load the hive with regedit under the key `HKLM` on your host machine
+- Give it a name like `zzz_system`
+- Find the key `HKEY_LOCAL_MACHINE\zzz_system\ControlSet001\Control\Session Manager\Environment`
+- You will see common variables like `PATH` and `TEMP`
+- Don't forget to unload the hive when you are done
 
 ## How to build this WinPE image
 
